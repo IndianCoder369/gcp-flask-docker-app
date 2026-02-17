@@ -34,3 +34,6 @@ steps:
 
 images:
   - asia-south2-docker.pkg.dev/gcp-cicd-demo-487317/python-flask-app/pyappimage:latest
+
+options:
+  logging: CLOUD_LOGGING_ONLY
