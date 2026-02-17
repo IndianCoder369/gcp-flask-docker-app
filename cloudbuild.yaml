@@ -15,4 +15,5 @@ steps:
   - 'asia-south2-docker.pkg.dev/gcp-cicd-demo-487317/python-flask-app/pyappimage:latest'
   - '--region'
   - 'asia-south2'
-  - '--allow-unauthenticated'  
+  - '--allow-unauthenticated' 
+  
