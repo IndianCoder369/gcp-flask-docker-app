@@ -4,7 +4,7 @@ steps:
       [
         'build',
         '-t',
-        'asia-south2-docker.pkg.dev/${PROJECT_ID}/python-flask-app/pyappimage:latest',
+        'asia-south2-docker.pkg.dev/${PROJECT_ID}/{_IMAGE}',
         '.'
       ]
 
@@ -12,7 +12,7 @@ steps:
     args:
       [
         'push',
-        'asia-south2-docker.pkg.dev/${PROJECT_ID}/python-flask-app/pyappimage:latest'
+        'asia-south2-docker.pkg.dev/${PROJECT_ID}/{_IMAGE}'
       ]
 
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -23,7 +23,7 @@ steps:
         'deploy',
         'pyflaskapp',
         '--image',
-        'asia-south2-docker.pkg.dev/${PROJECT_ID}/python-flask-app/pyappimage:latest',
+        'asia-south2-docker.pkg.dev/${PROJECT_ID}/{_IMAGE}',
         '--region',
         'asia-south2',
         '--platform',
@@ -33,7 +33,10 @@ steps:
       ]
 
 images:
-  - asia-south2-docker.pkg.dev/${PROJECT_ID}/python-flask-app/pyappimage:latest
+  - asia-south2-docker.pkg.dev/${PROJECT_ID}/{_IMAGE}
 
 options:
   logging: CLOUD_LOGGING_ONLY
+
+substitutions:
+  _IMAGE: 'python-flask-app/pyappimage:latest'
